@@ -1,17 +1,21 @@
 from Crypto.Cipher import AES
 from Crypto import Random
 import os
+import sys
+sys.path.append('../helpers')
+from import_keys import load_keys
 
-key = b'Sixteen byte key'
-iv = Random.new().read(AES.block_size)
-cipher = AES.new(key, AES.MODE_CFB, iv)
-msg = iv + cipher.encrypt(b'Attack at dawn')
-print(msg)
+config = load_keys()
 
-decrypt = cipher.decrypt(msg)
-print(decrypt)
+def encrypt_message(msg):
 
-secret = os.urandom(32)
-print secret
-print secret
-print secret
+	key = config["AES"].encode('utf-8')
+	iv = Random.new().read(AES.block_size)
+	cipher = AES.new(key, AES.MODE_CFB, iv)
+	msg = iv + cipher.encrypt(b'Attack at dawn')
+
+
+def decrypt_message(msg):
+	decrypt = cipher.decrypt(msg)
+	print(decrypt)
+	

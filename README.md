@@ -11,3 +11,5 @@ https://www.dlitz.net/software/pycrypto/
 
 
 http://www.laurentluce.com/posts/python-and-cryptography-with-pycrypto/
+
+https://gist.github.com/sekondus/4322469
