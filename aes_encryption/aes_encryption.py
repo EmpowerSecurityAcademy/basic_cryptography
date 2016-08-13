@@ -1,5 +1,6 @@
 from Crypto.Cipher import AES
 from Crypto import Random
+import os
 
 key = b'Sixteen byte key'
 iv = Random.new().read(AES.block_size)
@@ -9,3 +10,8 @@ print(msg)
 
 decrypt = cipher.decrypt(msg)
 print(decrypt)
+
+secret = os.urandom(32)
+print secret
+print secret
+print secret
